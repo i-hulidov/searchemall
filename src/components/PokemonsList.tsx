@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { allPokemonsUrl, searchCharactersRequired } from '../constants';
+import { allPokemonsUrl } from '../constants';
 import { SearchResult } from '../components';
 import { TPokemon } from '../types';
 import { contains } from '../utilities';
@@ -30,10 +30,8 @@ const PokemonsList = ({ searchQuery, debouncedSearchQuery, setLoading }: TProps)
   }, []);
 
   useEffect(() => {
-    if (debouncedSearchQuery.length >= searchCharactersRequired) {
-      const filteredPokemons = pokemonList.filter(contains(debouncedSearchQuery));
-      setSearchResults(filteredPokemons);
-    }
+    const filteredPokemons = pokemonList.filter(contains(debouncedSearchQuery));
+    setSearchResults(filteredPokemons);
   }, [debouncedSearchQuery]);
 
   useEffect(() => {
@@ -42,7 +40,7 @@ const PokemonsList = ({ searchQuery, debouncedSearchQuery, setLoading }: TProps)
     }
   }, [searchQuery]);
 
-  if (debouncedSearchQuery.length >= searchCharactersRequired && searchResults.length === 0) {
+  if (debouncedSearchQuery.length >= 0 && searchResults.length === 0) {
     return <div>No pokemons found</div>;
   }
 
