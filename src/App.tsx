@@ -1,27 +1,24 @@
 import React from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { routes } from './constants';
-import { Details, Home } from './screens';
-
-import './styles/App.css';
-
-const router = createBrowserRouter([
-  {
-    path: routes.home,
-    element: <Home />,
-  },
-  {
-    path: routes.details,
-    element: <Details />,
-  },
-]);
+import { SearchProvider } from './contexts/SearchContext';
+import { Search, Details, Welcome, Error } from './components/screens';
+import { routes } from './routes';
+import ErrorBoundary from './utils/ErrorBoundary';
 
 function App() {
   return (
-    <div className="App">
-      <RouterProvider router={router} />
-    </div>
+    <BrowserRouter>
+      <ErrorBoundary fallback={<Error />}>
+        <SearchProvider>
+          <Routes>
+            <Route path={routes.welcome} element={<Welcome />} />
+            <Route path={routes.search} element={<Search />} />
+            <Route path={routes.details} element={<Details />} />
+          </Routes>
+        </SearchProvider>
+      </ErrorBoundary>
+    </BrowserRouter>
   );
 }
 
