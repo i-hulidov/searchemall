@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { pokemonImageBaseUrl } from '../constants';
 import { TPokemon } from '../types';
 import { getPokemonIdFromUrl } from '../utilities';
 
@@ -14,10 +15,7 @@ const SearchResult = ({ searchResult, onClick }: TProps) => {
   return (
     <div className="search-result" onClick={onClick}>
       <div className="image-container">
-        <img
-          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`}
-          alt={searchResult.name}
-        />
+        <img src={`${pokemonImageBaseUrl}/${pokemonId}.png`} alt={searchResult.name} />
       </div>
       <span className="search-result__name">{searchResult.name}</span>
     </div>
