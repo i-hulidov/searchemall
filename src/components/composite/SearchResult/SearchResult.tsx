@@ -4,6 +4,8 @@ import { pokemonImageBaseUrl } from '../../../data/constants/urls';
 import { TPokemon } from '../../../types/Pokemons';
 import { getPokemonIdFromUrl } from './utilities/getPokemonIdFromUrl';
 
+import styles from './SearchResult.styles.module.scss';
+
 type TProps = {
   searchResult: TPokemon;
   onClick: () => void;
@@ -13,11 +15,11 @@ const SearchResult = ({ searchResult, onClick }: TProps) => {
   const pokemonId = getPokemonIdFromUrl(searchResult.url);
 
   return (
-    <div className="search-result" onClick={onClick}>
-      <div className="image-container">
+    <div className={styles.container} onClick={onClick}>
+      <div className={styles.imageContainer}>
         <img src={`${pokemonImageBaseUrl}/${pokemonId}.png`} alt={searchResult.name} />
       </div>
-      <span className="search-result__name">{searchResult.name}</span>
+      <span className={styles.container__name}>{searchResult.name}</span>
     </div>
   );
 };

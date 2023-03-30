@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid red;
+  padding: 8px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: red;
+  }
+
+  &:hover &__name {
+    color: white;
+  }
+
+  &__name {
+    margin-left: 12px;
+  }
+}
+
+.image-container {
+  width: 96px;
+  height: 96px;
+}

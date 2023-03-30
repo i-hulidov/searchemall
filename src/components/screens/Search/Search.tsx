@@ -3,13 +3,13 @@ import { SearchContext } from '../../../contexts/SearchContext';
 
 import { PokemonsList } from '../../composite/PokemonsList';
 
-import './Search.styles.css';
+import styles from './Search.styles.module.scss';
 
 const Search = () => {
   const { loading, searchQuery, searchResults, setSearchQuery } = useContext(SearchContext);
 
   return (
-    <div className="container">
+    <div className={styles.container}>
       <input
         name="pokemon"
         type="text"
@@ -18,7 +18,7 @@ const Search = () => {
         disabled={loading}
         onChange={(e) => setSearchQuery(e.target.value)}
       />
-      <PokemonsList searchResults={searchResults} isEmpty={searchQuery.length >= 0 && searchResults.length === 0} />
+      <PokemonsList searchResults={searchResults} />
     </div>
   );
 };

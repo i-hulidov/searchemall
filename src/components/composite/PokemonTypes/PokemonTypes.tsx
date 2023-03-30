@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { PokemonType } from '../PokemonType';
-
 import { TPokemonType } from '../../../types/Pokemons';
+import styles from './PokemonsTypes.styles.module.scss';
 
 type TProps = {
   types: TPokemonType[];
@@ -10,7 +10,7 @@ type TProps = {
 
 const PokemonTypes = ({ types }: TProps) => {
   return (
-    <div className="pokemon-types">
+    <div className={styles.container}>
       {types.map((item, i) => (
         <PokemonType key={i} type={item.type.name} />
       ))}

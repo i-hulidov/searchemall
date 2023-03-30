@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import { pokemonUrl } from '../../../data/constants/urls';
 import { PokemonAvatar, PokemonStats, PokemonTypes } from '../../composite';
 import { TPokemonDetails } from '../../../types/Pokemons';
-import { routes } from '../../..//routes';
-
-import './Details.styles.css';
+// import { routes } from '../../..//routes';
 
 const Details = () => {
   const [, setLoading] = useState(true);
