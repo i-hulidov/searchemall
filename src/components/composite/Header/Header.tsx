@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { Image } from '../../shared/Image';
-import { routes } from '../../../routes';
-import pokeballLogo from '../../../assets/logos/pokeballLogo.png';
+import { Image } from 'src/components/shared/Image';
+
+import pokeballLogo from 'src/assets/logos/pokeballLogo.png';
+import { routes } from 'src/data/constants/routes';
 import styles from './Header.styles.module.scss';
 
 const Header = () => {

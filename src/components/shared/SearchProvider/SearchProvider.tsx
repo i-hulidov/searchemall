@@ -1,25 +1,15 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { pokemonUrl } from '../data/constants/urls';
-import { TPokemon } from '../types/Pokemons';
-import { contains } from '../utils/contains';
+import { SearchContext } from 'src/contexts/SearchContext';
+import { pokemonUrl } from 'src/data/constants/urls';
+import { TPokemon } from 'src/types/Pokemons';
+import { contains } from './utils/contains';
 
 type TProps = {
   children: JSX.Element;
 };
 
-type TSearchContext = {
-  loading: boolean;
-  searchQuery: string;
-  pokemonList: TPokemon[];
-  searchResults: TPokemon[];
-  setSearchQuery: (value: string) => void;
-  setLoading: (value: boolean) => void;
-};
-
-export const SearchContext = createContext({} as TSearchContext);
-
-export const SearchProvider = (props: TProps) => {
+const SearchProvider = (props: TProps) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [pokemonList, setPokemonList] = useState<TPokemon[]>([]);
   const [searchResults, setSearchResults] = useState<TPokemon[]>([]);
@@ -57,3 +47,5 @@ export const SearchProvider = (props: TProps) => {
 
   return <SearchContext.Provider value={value} {...props} />;
 };
+
+export default SearchProvider;

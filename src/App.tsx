@@ -1,11 +1,12 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
-import { SearchProvider } from './contexts/SearchContext';
-import { Search, Details, Welcome, Error } from './components/screens';
-import { Header, Footer } from './components/composite';
-import { routes } from './routes';
-import ErrorBoundary from './utils/ErrorBoundary';
+import ErrorBoundary from 'src/components/shared/ErrorBoundary/ErrorBoundary';
+import { SearchProvider } from 'src/components/shared/SearchProvider';
+import { Footer } from 'src/components/composite/Footer';
+import { Header } from 'src/components/composite/Header';
+import { Error } from 'src/components/screens';
+import Routes from 'src/routes';
 
 import './styles/App.scss';
 
@@ -16,11 +17,7 @@ function App() {
         <div className="app">
           <Header />
           <SearchProvider>
-            <Routes>
-              <Route path={routes.welcome} element={<Welcome />} />
-              <Route path={routes.search} element={<Search />} />
-              <Route path={routes.details} element={<Details />} />
-            </Routes>
+            <Routes />
           </SearchProvider>
           <Footer />
         </div>

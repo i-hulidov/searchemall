@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
-import { pokemonUrl } from '../../../data/constants/urls';
-import { PokemonAvatar, PokemonStats, PokemonTypes } from '../../composite';
-import { TPokemonDetails } from '../../../types/Pokemons';
-import { routes } from '../../..//routes';
+import { PokemonAvatar } from 'src/components/composite/PokemonAvatar';
+import { PokemonStats } from 'src/components/composite/PokemonStats';
+import { PokemonTypes } from 'src/components/composite/PokemonTypes';
+import { routes } from 'src/data/constants/routes';
+import { pokemonUrl } from 'src/data/constants/urls';
+import { TPokemonDetails } from 'src/types/Pokemons';
+
 import styles from './Details.styles.module.scss';
 
 const Details = () => {

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { SearchContext } from '../../../contexts/SearchContext';
 
-import { PokemonsList } from '../../composite/PokemonsList';
+import { SearchContext } from 'src/contexts/SearchContext';
+import { PokemonsList } from 'src/components/composite/PokemonsList';
 
 import styles from './Search.styles.module.scss';
 

@@ -1,8 +1,8 @@
 import React, { CSSProperties } from 'react';
 
 import Image from '../../shared/Image/Image';
-import { pokemonImageBaseUrl } from '../../../data/constants/urls';
-import { TPokemon } from '../../../types/Pokemons';
+import { pokemonImageBaseUrl } from 'src/data/constants/urls';
+import { TPokemon } from 'src/types/Pokemons';
 import { getPokemonIdFromUrl } from './utilities/getPokemonIdFromUrl';
 
 import styles from './SearchResult.styles.module.scss';

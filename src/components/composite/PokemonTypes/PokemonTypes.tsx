@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { PokemonType } from '../PokemonType';
-import { TPokemonType } from '../../../types/Pokemons';
+import { TPokemonType } from 'src/types/Pokemons';
 import styles from './PokemonsTypes.styles.module.scss';
 
 type TProps = {

@@ -2,9 +2,9 @@ import React, { FC, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AutoSizer as _AutoSizer, AutoSizerProps, List as _List, ListProps, ListRowRenderer } from 'react-virtualized';
 
-import { rowHeight } from '../../../data/constants/list';
+import { rowHeight } from 'src/data/constants/pokemonSearchList';
 import { SearchResult } from '../SearchResult/';
-import { TPokemon } from '../../../types/Pokemons';
+import { TPokemon } from 'src/types/Pokemons';
 
 import styles from './PokemonsList.styles.module.scss';
 
@@ -15,11 +15,13 @@ type TProps = {
   searchResults: TPokemon[];
 };
 
+// TODO: Decompose
 const PokemonsList = ({ searchResults }: TProps) => {
   const navigate = useNavigate();
 
   const navigateToDetails = useCallback((path: string) => () => navigate(path), []);
 
+  // TODO: Move to ListItem component
   const renderRow: ListRowRenderer = ({ index, key, style }) => {
     const searchResult = searchResults[index];
 
@@ -54,13 +56,3 @@ const PokemonsList = ({ searchResults }: TProps) => {
 };
 
 export default PokemonsList;
-
-/*
-{searchResults.map((searchResult) => (
-  <SearchResult
-    searchResult={searchResult}
-    key={searchResult.name}
-    onClick={() => navigate(`/details/${searchResult.name}`)}
-  />
-))}
- */
