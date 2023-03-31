@@ -1,58 +1,46 @@
-import React, { FC, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AutoSizer as _AutoSizer, AutoSizerProps, List as _List, ListProps, ListRowRenderer } from 'react-virtualized';
+import { ListRowRenderer } from 'react-virtualized';
+import { List } from 'src/components/shared/List';
 
-import { rowHeight } from 'src/data/constants/pokemonSearchList';
+import { rowHeight, overScanRowCount } from 'src/data/constants/pokemonSearchList';
 import { SearchResult } from '../SearchResult/';
 import { TPokemon } from 'src/types/Pokemons';
-
-import styles from './PokemonsList.styles.module.scss';
-
-const List = _List as unknown as FC<ListProps>;
-const AutoSizer = _AutoSizer as unknown as FC<AutoSizerProps>;
 
 type TProps = {
   searchResults: TPokemon[];
 };
 
-// TODO: Decompose
+const renderRow: ListRowRenderer = ({ index, key, style, parent }) => {
+  const { props } = parent;
+  const { data, onItemClick } = props;
+
+  const searchResult = data[index];
+
+  return (
+    <SearchResult
+      searchResult={searchResult}
+      key={key}
+      onClick={onItemClick(`/details/${searchResult.name}`)}
+      style={style}
+    />
+  );
+};
+
 const PokemonsList = ({ searchResults }: TProps) => {
   const navigate = useNavigate();
 
   const navigateToDetails = useCallback((path: string) => () => navigate(path), []);
 
-  // TODO: Move to ListItem component
-  const renderRow: ListRowRenderer = ({ index, key, style }) => {
-    const searchResult = searchResults[index];
-
-    return (
-      <SearchResult
-        searchResult={searchResult}
-        key={key}
-        onClick={navigateToDetails(`/details/${searchResult.name}`)}
-        style={style}
-      />
-    );
-  };
-
-  return searchResults.length ? (
-    <div className={styles.container}>
-      <AutoSizer>
-        {({ width, height }) => {
-          return (
-            <List
-              width={width}
-              height={height}
-              rowHeight={rowHeight}
-              rowRenderer={renderRow}
-              rowCount={searchResults.length}
-              overscanRowCount={3}
-            />
-          );
-        }}
-      </AutoSizer>
-    </div>
-  ) : null;
+  return (
+    <List
+      data={searchResults}
+      rowHeight={rowHeight}
+      overScanRowCount={overScanRowCount}
+      renderRow={renderRow}
+      onItemClick={navigateToDetails}
+    />
+  );
 };
 
 export default PokemonsList;

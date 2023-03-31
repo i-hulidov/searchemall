@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { PokemonStat } from 'src/components/shared/PokemonStat';
 import { TPokemonStat } from 'src/types/Pokemons';
 import styles from './PokemonsStats.styles.module.scss';
 
@@ -15,12 +16,8 @@ const PokemonStats = ({ stats }: TProps) => {
         <div className={styles.table__row__item}>Stats</div>
       </div>
       <div className="body">
-        {/* TODO: Decompose */}
         {stats.map((item) => (
-          <div key={item.stat.name} className={styles.table__row}>
-            <div className={styles.table__row__item}>{item.stat.name.toUpperCase()}:</div>
-            <div className={styles.table__row__item}>{item.base_stat}</div>
-          </div>
+          <PokemonStat key={item.stat.name} item={item} />
         ))}
       </div>
     </div>
