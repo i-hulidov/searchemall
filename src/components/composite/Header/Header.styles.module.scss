@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  position: relative;
+  //flex-direction: column;
+  //justify-content: center;
+  align-items: center;
+  border: 1px solid;
+  padding: 12px;
+  //height: 60px;
+}
+
+.image {
+  height: 50px;
+  width: 50px;
+  justify-self: flex-start;
+  cursor: pointer;
+  //align-self: center;
+}
+
+nav {
+  margin: 0 auto;
+  //position: absolute;
+  //left: 0;
+  //right: 0;
+  //margin: auto
+  //align-self: center;
+  //justify-self: center;
+}
+
+.link {
+  margin-right: 12px;
+}

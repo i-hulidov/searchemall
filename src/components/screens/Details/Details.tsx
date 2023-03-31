@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 import { pokemonUrl } from '../../../data/constants/urls';
 import { PokemonAvatar, PokemonStats, PokemonTypes } from '../../composite';
 import { TPokemonDetails } from '../../../types/Pokemons';
-// import { routes } from '../../..//routes';
+import { routes } from '../../..//routes';
+import styles from './Details.styles.module.scss';
 
 const Details = () => {
   const [, setLoading] = useState(true);
   const [details, setDetails] = useState<TPokemonDetails | null>(null);
   const { pokemonName } = useParams();
-  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`${pokemonUrl}/${pokemonName}`)
@@ -23,14 +23,13 @@ const Details = () => {
   }, []);
 
   return details ? (
-    <div>
+    <div className={styles.container}>
       <PokemonAvatar img={details.sprites.front_default} name={details.name} />
       <PokemonTypes types={details.types} />
       <PokemonStats stats={details.stats} />
-      <div className="footer" onClick={() => navigate(-1)}>
-        Go back
-        {/*<Link to={routes.search}>{'<- Back'}</Link>*/}
-      </div>
+      <Link className={styles.link} to={routes.search}>
+        {'Back'}
+      </Link>
     </div>
   ) : null;
 };

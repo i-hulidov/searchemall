@@ -5,6 +5,7 @@
   flex-direction: column;
   border: 2px solid red;
   border-radius: 12px;
-  margin-bottom: 12px;
+  margin: 12px 0;
   overflow: hidden;
+  flex-grow: 1;
 }

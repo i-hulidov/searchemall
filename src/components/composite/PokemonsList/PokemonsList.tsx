@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AutoSizer as _AutoSizer, AutoSizerProps, List as _List, ListProps, ListRowRenderer } from 'react-virtualized';
 
@@ -18,11 +18,18 @@ type TProps = {
 const PokemonsList = ({ searchResults }: TProps) => {
   const navigate = useNavigate();
 
-  const renderRow: ListRowRenderer = ({ index, key }) => {
+  const navigateToDetails = useCallback((path: string) => () => navigate(path), []);
+
+  const renderRow: ListRowRenderer = ({ index, key, style }) => {
     const searchResult = searchResults[index];
 
     return (
-      <SearchResult searchResult={searchResult} key={key} onClick={() => navigate(`/details/${searchResult.name}`)} />
+      <SearchResult
+        searchResult={searchResult}
+        key={key}
+        onClick={navigateToDetails(`/details/${searchResult.name}`)}
+        style={style}
+      />
     );
   };
 
@@ -30,8 +37,6 @@ const PokemonsList = ({ searchResults }: TProps) => {
     <div className={styles.container}>
       <AutoSizer>
         {({ width, height }) => {
-          console.log('width', width);
-          console.log('height', height);
           return (
             <List
               width={width}

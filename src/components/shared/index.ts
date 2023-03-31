@@ -1,4 +1,5 @@
 import { Input } from './Input';
 import { Modal } from './Modal';
+import { Image } from './Image';
 
-export { Input, Modal };
+export { Image, Input, Modal };
