@@ -18,10 +18,12 @@ const SearchResult = ({ searchResult, onClick, style }: TProps) => {
 
   return (
     <div className={styles.container} onClick={onClick} style={style}>
-      <div className={styles.imageContainer}>
-        <Image src={`${pokemonImageBaseUrl}/${pokemonId}.png`} alt={searchResult.name} />
+      <div className={styles.innerWrapper}>
+        <div className={styles.imageContainer}>
+          <Image src={`${pokemonImageBaseUrl}/${pokemonId}.png`} alt={searchResult.name} />
+        </div>
+        <span className={styles.container__name}>{searchResult.name}</span>
       </div>
-      <span className={styles.container__name}>{searchResult.name}</span>
     </div>
   );
 };

@@ -1,25 +1,41 @@
+@import '../../../styles/variables';
+
 .container {
   box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  border-bottom: 2px solid red;
-  padding: 8px;
   cursor: pointer;
-
-  &:hover {
-    background-color: red;
-  }
-
-  &:hover &__name {
-    color: white;
-  }
 
   &__name {
     margin-left: 12px;
   }
 }
 
-.image-container {
+.innerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 8px;
+  padding: 8px;
+  margin: 1px 8px 0;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.2);
+
+  &:hover {
+    background-color: $tomato;
+  }
+
+  &:hover &__name {
+    color: white;
+  }
+
+  &:hover .imageContainer {
+    transform: scale(1.1);
+  }
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 96px;
   height: 96px;
+  transition: all .2s ease-in-out;
 }
