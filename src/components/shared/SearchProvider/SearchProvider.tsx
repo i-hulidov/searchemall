@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import { PokemonAPI } from 'src/api/PokemonAPI';
 import { SearchContext } from 'src/contexts/SearchContext';
-import { pokemonUrl } from 'src/data/constants/urls';
 import { TPokemon } from 'src/types/Pokemons';
 import { contains } from './utils/contains';
 
@@ -16,13 +16,10 @@ const SearchProvider = (props: TProps) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`${pokemonUrl}?limit=2000`)
-      .then((res) => res.json())
-      .then((data) => {
-        setPokemonList(data.results);
-        setLoading(false);
-      })
-      .catch((e) => console.log('error', e));
+    PokemonAPI.getAll().then((res) => {
+      setPokemonList(res);
+      setLoading(false);
+    });
   }, []);
 
   useEffect(() => {

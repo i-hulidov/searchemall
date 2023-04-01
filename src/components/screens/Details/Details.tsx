@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
+import { PokemonAPI } from 'src/api/PokemonAPI';
 import { PokemonAvatar } from 'src/components/composite/PokemonAvatar';
 import { PokemonStats } from 'src/components/composite/PokemonStats';
 import { PokemonTypes } from 'src/components/composite/PokemonTypes';
 import { routes } from 'src/data/constants/routes';
-import { pokemonUrl } from 'src/data/constants/urls';
 import { TPokemonDetails } from 'src/types/Pokemons';
 
 import styles from './Details.styles.module.scss';
@@ -16,13 +16,12 @@ const Details = () => {
   const { pokemonName } = useParams();
 
   useEffect(() => {
-    fetch(`${pokemonUrl}/${pokemonName}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setDetails(data);
+    if (pokemonName) {
+      PokemonAPI.getPokemonDetails(pokemonName).then((res) => {
+        setDetails(res);
         setLoading(false);
-      })
-      .catch((e) => console.log('error', e));
+      });
+    }
   }, []);
 
   return details ? (
