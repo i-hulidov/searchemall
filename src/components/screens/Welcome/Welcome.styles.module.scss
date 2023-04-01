@@ -1,10 +1,35 @@
+@import '../../../styles/variables.scss';
+
 .container {
   display: flex;
+  flex-direction: column;
   flex: 1;
-  justify-content: center;
+  padding: 36px 12px 0;
   align-items: center;
+  color: $marian-blue;
+  font-family: 'Roboto-Meidum', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  background-color: $senor-pink;
+}
+
+.image {
+  width: 250px;
+  height: 250px;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.header {
+  font-size: 32px;
+  margin-bottom: 12px;
+  font-family: 'Roboto-Bold', sans-serif;
 }
 
 .link {
-  margin-left: 5px;
+  color: $yellow;
+}
+
+.link:hover {
+  color: $gold-dark;
 }

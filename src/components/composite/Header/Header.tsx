@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { Image } from 'src/components/shared/Image';
 
@@ -13,12 +13,7 @@ const Header = () => {
   return (
     <div className={styles.container}>
       <Image src={pokeballLogo} alt="logo" className={styles.image} onClick={() => navigate(routes.welcome)} />
-      <nav>
-        <Link className={styles.link} to={routes.welcome}>
-          Home
-        </Link>
-        <Link to={routes.search}>Search</Link>
-      </nav>
+      <span className={styles.text}>Search &apos;Em All</span>
     </div>
   );
 };

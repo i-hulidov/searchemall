@@ -1,7 +1,31 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid;
-  height: 60px;
+  background-color: $sky-blue;
+  padding: 12px;
+  box-shadow: 0 -3px 10px rgb(0 0 0 / 0.2);
+}
+
+nav {
+  position: relative;
+  margin: 0 auto;
+}
+
+.link {
+  font-size: 28px;
+  margin-right: 18px;
+  text-decoration: none;
+  color: $yellow;
+  transition: all .2s ease-in-out;
+  font-family: 'Roboto-Bold', sans-serif;
+
+  @include stroke-text(1px, $stroke-blue)
+}
+
+.link:hover {
+  color: $gold-dark;
 }
