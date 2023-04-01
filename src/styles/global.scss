@@ -1,4 +1,5 @@
 @import './fonts.scss';
+@import './variables.scss';
 
 html, body, p {
   margin: 0;
@@ -7,11 +8,12 @@ html, body, p {
 
 html {
   font-size: 100%;
-  margin-left: calc(100vw - 100%);
+  width: 100vw;
 }
 
 body {
   font-family: 'Roboto-Regular', sans-serif;
+  background-color: $senor-pink;
   min-width: 320px;
 }
 
