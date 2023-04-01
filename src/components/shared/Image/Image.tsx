@@ -8,7 +8,15 @@ const Image: FC<ImgHTMLAttributes<HTMLImageElement>> = ({ src, alt, ...rest }) =
 
   const finalSrc = !src || hasError ? pokeball : src;
 
-  return <img className={styles.image} src={finalSrc} alt={alt} onError={() => setHasError(true)} {...rest} />;
+  return (
+    <img
+      className={hasError ? styles.imageDefault : styles.image}
+      src={finalSrc}
+      alt={alt}
+      onError={() => setHasError(true)}
+      {...rest}
+    />
+  );
 };
 
 export default Image;
