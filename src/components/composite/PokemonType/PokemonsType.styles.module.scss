@@ -1,7 +1,113 @@
+@import '../../../styles/variables.scss';
+
+// pokemon types
+$normal: gray;
+$fire: #e25822;
+$water: #d4f1f9;
+$grass: green;
+$electric: #ffe62d;
+$ice: cyan;
+$fighting: orange;
+$poison: #40FD14;
+$ground: brown;
+$flying: skyblue;
+$psychic: #B080D0;
+$bug: chartreuse;
+$rock: #483C32;
+$ghost: #581845;
+$dragon: indigo;
+$shadow: black;
+$steel: silver;
+$fairy: pink;
+
 .container {
   border-radius: 24px;
-  background-color: red;
-  color: white;
-  padding: 4px 8px;
+  padding: 4px 12px;
   margin-right: 4px;
+  font-size: 12px;
+  font-family: 'Roboto-Medium', sans-serif;
+}
+
+.normal {
+  background: $normal;
+  color: $white;
+}
+
+.fighting {
+  background: $fighting;
+}
+
+.flying {
+  background: $flying;
+}
+
+.ground {
+  background: $ground;
+  color: $white;
+}
+
+.rock {
+  background: $rock;
+  color: $white;
+}
+
+.bug {
+  background: $bug;
+}
+
+.ghost {
+  background: $ghost;
+  color: $white;
+}
+
+.steel {
+  background: $steel;
+}
+
+.electric {
+  background: $electric;
+}
+
+.poison {
+  background: $poison;
+}
+
+.grass {
+  background: $grass;
+  color: $white;
+}
+
+.fire {
+  background: $fire;
+}
+
+.water {
+  background: $water;
+}
+
+.psychic {
+  background: $psychic;
+}
+
+.ice {
+  background: $ice;
+}
+
+.dragon {
+  background: $dragon;
+  color: $white;
+}
+
+.fairy {
+  background: $fairy;
+}
+
+.shadow {
+  background: $shadow;
+  color: $white;
+}
+
+.unknown {
+  background: gray;
+  color: $white;
 }

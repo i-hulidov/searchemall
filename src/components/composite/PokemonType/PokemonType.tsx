@@ -7,7 +7,7 @@ type TProps = {
 };
 
 const PokemonType = ({ type }: TProps) => {
-  return <div className={styles.container}>{type}</div>;
+  return <div className={`${styles.container} ${styles[type]}`}>{type}</div>;
 };
 
 export default PokemonType;
