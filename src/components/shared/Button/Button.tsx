@@ -4,12 +4,13 @@ import styles from './Button.styles.module.scss';
 
 type TProps = {
   name: string;
+  className?: string;
   onClick: () => void;
 };
 
-const Button: FC<TProps> = ({ name, onClick }) => {
+const Button: FC<TProps> = ({ name, onClick, className }) => {
   return (
-    <button className={styles.button} onClick={onClick}>
+    <button className={`${styles.button} ${className}`} onClick={onClick}>
       {name}
     </button>
   );

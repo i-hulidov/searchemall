@@ -24,6 +24,7 @@ const Details = () => {
   useEffect(() => {
     if (pokemonName) {
       PokemonAPI.getPokemonDetails(pokemonName).then((res) => {
+        console.log('res', res);
         setDetails(res);
         setLoading(false);
       });
@@ -43,7 +44,7 @@ const Details = () => {
           <div className={styles.innerWrapper}>
             <div className={styles.leftContainer}>
               <PokemonName name={details.name} order={details.order} />
-              <PokemonAvatar img={details.sprites.front_default} />
+              <PokemonAvatar sprites={details.sprites} />
               <PokemonTypes types={details.types} />
               <Info exp={details.base_experience} height={details.height} weight={details.weight} />
             </div>

@@ -54,6 +54,7 @@ export type TPokemonDetails = {
   abilities: TPokemonAbility[];
   sprites: {
     front_default: string;
+    back_default: string;
   };
   stats: TPokemonStat[];
   types: TPokemonType[];
