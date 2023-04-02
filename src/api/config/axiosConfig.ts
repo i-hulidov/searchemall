@@ -8,7 +8,7 @@ export const api = axios.create({
 
 const errorHandler = (error: AxiosError) => {
   const statusCode = error.response?.status;
-  console.log('Error handler');
+
   console.error(error, statusCode);
 
   return Promise.reject(error);

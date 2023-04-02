@@ -3,11 +3,10 @@ import { Avatar } from 'src/components/shared/Avatar';
 
 type TProps = {
   img: string;
-  name: string;
 };
 
-const PokemonAvatar = ({ img, name }: TProps) => {
-  return <Avatar img={img} name={name} />;
+const PokemonAvatar = ({ img }: TProps) => {
+  return <Avatar img={img} />;
 };
 
 export default PokemonAvatar;

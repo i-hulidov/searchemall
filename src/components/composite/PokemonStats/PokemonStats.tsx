@@ -11,11 +11,8 @@ type TProps = {
 const PokemonStats = ({ stats }: TProps) => {
   return (
     <div className={styles.table}>
-      <div className={`${styles.table__row} ${styles.heading}`}>
-        <div className={styles.table__row__item}>Base</div>
-        <div className={styles.table__row__item}>Stats</div>
-      </div>
-      <div className="body">
+      <div className={styles.header}>Stats</div>
+      <div className={styles.body}>
         {stats.map((item) => (
           <PokemonStat key={item.stat.name} item={item} />
         ))}
@@ -25,3 +22,8 @@ const PokemonStats = ({ stats }: TProps) => {
 };
 
 export default PokemonStats;
+
+// <div className={`${styles.table__row} ${styles.heading}`}>
+//   <div className={styles.table__row__item}>Base</div>
+//   <div className={styles.table__row__item}>Stats</div>
+// </div>
