@@ -4,6 +4,7 @@ import Image from '../../shared/Image/Image';
 import { pokemonImageBaseUrl } from 'src/data/constants/urls';
 import { TPokemon } from 'src/types/Pokemons';
 import { getPokemonIdFromUrl } from './utilities/getPokemonIdFromUrl';
+import { getPokemonDisplayName } from './utilities/getPokemonDisplayName';
 
 import styles from './SearchResult.styles.module.scss';
 
@@ -22,7 +23,7 @@ const SearchResult = ({ searchResult, onClick, style }: TProps) => {
         <div className={styles.imageContainer}>
           <Image src={`${pokemonImageBaseUrl}/${pokemonId}.png`} alt={searchResult.name} />
         </div>
-        <span className={styles.container__name}>{searchResult.name}</span>
+        <span className={styles.container__name}>{getPokemonDisplayName(searchResult.name)}</span>
       </div>
     </div>
   );
