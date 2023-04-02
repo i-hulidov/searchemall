@@ -1,9 +1,11 @@
+@import '../../../styles/variables';
+
 .container {
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  min-width: 320px;
+  min-width: calc(320px - (#{$padding} * 2));
   flex-direction: column;
   margin: 12px 0;
   overflow: hidden;

@@ -23,7 +23,7 @@ const SearchProvider = (props: TProps) => {
   }, []);
 
   useEffect(() => {
-    const filteredPokemons = pokemonList.filter(contains(searchQuery));
+    const filteredPokemons = pokemonList.filter(contains(searchQuery.toLowerCase()));
     setSearchResults(filteredPokemons);
   }, [searchQuery]);
 

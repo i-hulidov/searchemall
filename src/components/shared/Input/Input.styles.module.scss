@@ -1,0 +1,56 @@
+@import '../../../styles/variables.scss';
+
+.container {
+  display: flex;
+  align-items: center;
+  background-color: $senor-pink;
+  position: relative;
+}
+
+input[type='text'] {
+  width: calc(320px - #{$padding} * 2);
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 8px 24px 8px 8px;
+  color: $marian-blue;
+  font-family: 'Roboto-Bold', sans-serif;
+  border: 2px solid $periwinkle-dark;
+  background-color: $azure;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+input[type='text']::placeholder {
+  font-family: 'Roboto-Regular', sans-serif;
+  color: $stroke-blue;
+}
+
+input[type='text']:focus, input[type='text']:active {
+  outline:none;
+  border-color: $sky-blue;
+}
+
+.close {
+  position: absolute;
+  right: 8px;
+  width: 16px;
+  height: 16px;
+  opacity: 0.3;
+  cursor: pointer;
+}
+.close:hover {
+  opacity: 1;
+}
+.close:before, .close:after {
+  position: absolute;
+  left: 7px;
+  content: ' ';
+  height: 17px;
+  width: 2px;
+  background-color: #333;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}

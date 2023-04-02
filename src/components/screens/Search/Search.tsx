@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Input from 'src/components/shared/Input/Input';
 
 import { SearchContext } from 'src/contexts/SearchContext';
 import { PokemonsList } from 'src/components/composite/PokemonsList';
@@ -10,12 +11,12 @@ const Search = () => {
 
   return (
     <div className={styles.container}>
-      <input
+      <Input
         name="pokemon"
-        type="text"
-        placeholder="Enter a pokemon's name"
+        placeholder="Ex: Charizard"
         value={searchQuery}
         disabled={loading}
+        onClear={() => setSearchQuery('')}
         onChange={(e) => setSearchQuery(e.target.value)}
       />
       <PokemonsList searchResults={searchResults} />
