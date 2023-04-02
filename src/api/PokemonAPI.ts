@@ -21,4 +21,14 @@ export const PokemonAPI = {
 
     return response.data;
   },
+
+  getPokemonAbility: async function (url: string) {
+    const response = await api.request({
+      url,
+      baseURL: '/',
+      method: 'GET',
+    });
+
+    return response.data;
+  },
 };
