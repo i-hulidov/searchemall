@@ -13,7 +13,9 @@ const Header = () => {
   return (
     <div className={styles.container}>
       <Image src={pokeballLogo} alt="logo" className={styles.image} onClick={() => navigate(routes.welcome)} />
-      <span className={styles.text}>Search &apos;Em All</span>
+      <span className={styles.text} data-testid="header">
+        Search &apos;Em All
+      </span>
     </div>
   );
 };
