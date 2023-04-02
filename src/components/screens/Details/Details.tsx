@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import { PokemonAPI } from 'src/api/PokemonAPI';
+import { Abilities } from 'src/components/composite/Abilities';
+import Info from 'src/components/composite/Info/Info';
 import { PokemonAvatar } from 'src/components/composite/PokemonAvatar';
 import { PokemonStats } from 'src/components/composite/PokemonStats';
 import { PokemonTypes } from 'src/components/composite/PokemonTypes';
+import Button from 'src/components/shared/Button/Button';
 import { Loader } from 'src/components/shared/Loader';
+import { PokemonName } from 'src/components/shared/PokemonName';
 import { routes } from 'src/data/constants/routes';
 import { TPokemonDetails } from 'src/types/Pokemons';
 
@@ -15,6 +19,8 @@ const Details = () => {
   const [loading, setLoading] = useState(true);
   const [details, setDetails] = useState<TPokemonDetails | null>(null);
   const { pokemonName } = useParams();
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (pokemonName) {
       PokemonAPI.getPokemonDetails(pokemonName).then((res) => {
@@ -34,12 +40,21 @@ const Details = () => {
         <Loader />
       ) : (
         <>
-          <PokemonAvatar img={details.sprites.front_default} name={details.name} />
-          <PokemonTypes types={details.types} />
-          <PokemonStats stats={details.stats} />
-          <Link className={styles.link} to={routes.search}>
-            {'Back'}
-          </Link>
+          <div className={styles.innerWrapper}>
+            <div className={styles.leftContainer}>
+              <PokemonName name={details.name} order={details.order} />
+              <PokemonAvatar img={details.sprites.front_default} />
+              <PokemonTypes types={details.types} />
+              <Info exp={details.base_experience} height={details.height} weight={details.weight} />
+            </div>
+            <div className={styles.rightContainer}>
+              <PokemonStats stats={details.stats} />
+              <Abilities abilities={details.abilities} />
+            </div>
+          </div>
+          <div className={styles.backButtonContainer}>
+            <Button name="Back" onClick={() => navigate(routes.search)} />
+          </div>
         </>
       )}
     </div>
