@@ -21,7 +21,7 @@ const List = ({ data, onItemClick, rowHeight, renderRow, overScanRowCount }: TPr
 
   return (
     <div className={styles.container}>
-      <AutoSizer>
+      <AutoSizer defaultWidth={100} defaultHeight={100}>
         {({ width, height }) => {
           return (
             <VirtualList
@@ -33,6 +33,7 @@ const List = ({ data, onItemClick, rowHeight, renderRow, overScanRowCount }: TPr
               overscanRowCount={overScanRowCount}
               data={data}
               onItemClick={onItemClick}
+              data-testid="virtual-list"
             />
           );
         }}

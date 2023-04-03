@@ -18,7 +18,7 @@ const SearchResult = ({ searchResult, onClick, style }: TProps) => {
   const pokemonId = getIdFromUrl(searchResult.url);
 
   return (
-    <div className={styles.container} onClick={onClick} style={style}>
+    <div data-testid={searchResult.name} className={styles.container} onClick={onClick} style={style}>
       <div className={styles.innerWrapper}>
         <div className={styles.imageContainer}>
           <Image src={`${pokemonImageBaseUrl}/${pokemonId}.png`} alt={searchResult.name} />

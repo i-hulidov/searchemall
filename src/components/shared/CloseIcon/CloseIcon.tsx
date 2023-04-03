@@ -7,7 +7,7 @@ type TProps = {
 };
 
 const CloseIcon = ({ onClick, className }: TProps) => {
-  return <div className={`${styles.close} ${className}`} onClick={onClick} />;
+  return <div data-testid="close-button" className={`${styles.close} ${className}`} onClick={onClick} />;
 };
 
 export default CloseIcon;

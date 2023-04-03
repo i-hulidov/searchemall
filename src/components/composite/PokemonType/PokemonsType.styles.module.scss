@@ -17,6 +17,7 @@ $rock: #483C32;
 $ghost: #581845;
 $dragon: indigo;
 $shadow: black;
+$dark: black;
 $steel: silver;
 $fairy: pink;
 
@@ -103,6 +104,11 @@ $fairy: pink;
 }
 
 .shadow {
+  background: $shadow;
+  color: $white;
+}
+
+.dark {
   background: $shadow;
   color: $white;
 }

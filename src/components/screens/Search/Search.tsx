@@ -1,13 +1,15 @@
 import React, { useContext } from 'react';
-import Input from 'src/components/shared/Input/Input';
 
+import Input from 'src/components/shared/Input/Input';
+import PokemonNotFound from 'src/components/shared/PokemonNotFound/PokemonNotFound';
 import { SearchContext } from 'src/contexts/SearchContext';
 import { PokemonsList } from 'src/components/composite/PokemonsList';
 
 import styles from './Search.styles.module.scss';
 
 const Search = () => {
-  const { loading, searchQuery, searchResults, setSearchQuery } = useContext(SearchContext);
+  const { loading, debouncedSearchQuery, searchQuery, searchResults, setSearchQuery, error } =
+    useContext(SearchContext);
 
   return (
     <div className={styles.container}>
@@ -16,10 +18,17 @@ const Search = () => {
         placeholder="Enter the pokemon name"
         value={searchQuery}
         disabled={loading}
+        error={error}
         onClear={() => setSearchQuery('')}
-        onChange={(e) => setSearchQuery(e.target.value)}
+        onChange={(e) => setSearchQuery(e.target.value.trimStart())}
       />
-      <PokemonsList searchResults={searchResults} />
+      {searchResults.length ? (
+        <PokemonsList searchResults={searchResults} />
+      ) : debouncedSearchQuery.length ? (
+        <div className={styles.notFoundContainer}>
+          <PokemonNotFound />
+        </div>
+      ) : null}
     </div>
   );
 };
