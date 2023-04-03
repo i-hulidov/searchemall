@@ -4,10 +4,10 @@ import '@testing-library/jest-dom';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 
-import { Search } from 'src/components/screens';
-import { SearchProvider } from 'src/components/shared/SearchProvider';
-import { SearchContext } from 'src/contexts/SearchContext';
-import { wait } from 'src/utils/wait';
+import { Search } from '../components/screens';
+import { SearchProvider } from '../components/shared/SearchProvider';
+import { SearchContext } from '../contexts/SearchContext';
+import { wait } from '../utils/wait';
 
 const CustomTest = () => {
   const { searchQuery, setSearchQuery } = useContext(SearchContext);

@@ -3,6 +3,7 @@
 - First Git Clone Or Download Project
 - `npm install` or `yarn add`
 - Run: `npm start` or `yarn start`
+- Run tests: `npm tests` or `yarn start`
 
 ## Description
 The main limitation of pokeapi is that it only allows to search a single pokemon by its full name. 
