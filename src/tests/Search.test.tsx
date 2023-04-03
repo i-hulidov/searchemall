@@ -11,7 +11,7 @@ import { wait } from 'src/utils/wait';
 
 const CustomTest = () => {
   const { searchQuery, setSearchQuery } = useContext(SearchContext);
-  console.log('searchQuery', searchQuery);
+
   return (
     <div>
       <div data-testid="search-query">{JSON.stringify(searchQuery)}</div>
