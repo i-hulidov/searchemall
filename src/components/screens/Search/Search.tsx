@@ -13,7 +13,7 @@ const Search = () => {
     <div className={styles.container}>
       <Input
         name="pokemon"
-        placeholder="Ex: Charizard"
+        placeholder="Enter the pokemon name"
         value={searchQuery}
         disabled={loading}
         onClear={() => setSearchQuery('')}

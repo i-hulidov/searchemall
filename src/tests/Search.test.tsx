@@ -17,8 +17,8 @@ const CustomTest = () => {
   );
 };
 
-describe('App', () => {
-  it('renders', () => {
+describe('Search functionality', () => {
+  it('input', () => {
     render(
       <SearchProvider>
         <CustomTest />

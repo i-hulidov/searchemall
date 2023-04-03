@@ -26,13 +26,9 @@ const AbilityItem = ({ ability }: TAbilityItemProps) => {
     });
   }, []);
 
-  if (!abilityDetails) {
-    return null;
-  }
-
   return (
     <div className={styles.abilityItem}>
-      {loading ? (
+      {loading || !abilityDetails ? (
         <Loader style={{ width: '24px', height: '24px', alignSelf: 'center' }} />
       ) : (
         <>

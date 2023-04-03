@@ -9,10 +9,6 @@
     font-family: 'Roboto-Medium', sans-serif;
     font-size: 18px;
   }
-
-  &:hover &__name {
-    color: white;
-  }
 }
 
 .innerWrapper {
@@ -30,6 +26,10 @@
 
   &:hover .imageContainer {
     transform: scale(1.1);
+  }
+
+  &:hover &__name {
+    color: white;
   }
 }
 

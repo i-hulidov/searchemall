@@ -24,21 +24,16 @@ const Details = () => {
   useEffect(() => {
     if (pokemonName) {
       PokemonAPI.getPokemonDetails(pokemonName).then((res) => {
-        console.log('res', res);
         setDetails(res);
         setLoading(false);
       });
     }
   }, []);
 
-  if (!details) {
-    return null;
-  }
-
   return (
     <div className={styles.container}>
-      {loading ? (
-        <Loader />
+      {loading || !details ? (
+        <Loader style={{ margin: 'auto ' }} />
       ) : (
         <>
           <div className={styles.innerWrapper}>

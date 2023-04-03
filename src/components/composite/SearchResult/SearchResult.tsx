@@ -23,7 +23,7 @@ const SearchResult = ({ searchResult, onClick, style }: TProps) => {
         <div className={styles.imageContainer}>
           <Image src={`${pokemonImageBaseUrl}/${pokemonId}.png`} alt={searchResult.name} />
         </div>
-        <span className={styles.container__name}>{getDisplayName(searchResult.name)}</span>
+        <span className={styles.innerWrapper__name}>{getDisplayName(searchResult.name)}</span>
       </div>
     </div>
   );
